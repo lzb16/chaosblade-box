@@ -60,6 +60,7 @@
     "MEM": "内存",
     "JVM": "Java",
     "PROCESS": "进程",
-    "DISK": "磁盘"
+    "DISK": "磁盘",
+    "ZK": "Zookeeper"
   }
 }

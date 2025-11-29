@@ -239,5 +239,7 @@
   "chaos.jvm.OutOfMemoryError",
   "chaos.container-psql.delay",
   "chaos.hsf.throwCustomException",
-  "chaos.cpu.fullload"
+  "chaos.cpu.fullload",
+  "chaos.zk.delay",
+  "chaos.zk.throwCustomException"
 ]

@@ -9791,6 +9791,212 @@ items:
       required: false
       requiredWhenDestroyed: false
     required: true
+- target: zk
+  shortDesc: zk experiment
+  longDesc: zk experiment contains delay and exception by command and so on.
+  actions:
+  - action: delay
+    shortDesc: delay time
+    longDesc: zk commands delay experiments
+    matchers:
+    - name: effect-count
+      desc: The count of chaos experiment in effect
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: effect-percent
+      desc: The percent of chaos experiment in effect
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: path
+      desc: The zookeeper node path
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: pre-compile
+      desc: pre compile
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: filter-script-file
+      desc: the script full path to filter request
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: filter-script-content
+      desc: the script content to filter request
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    flags:
+    - name: time
+      desc: delay time (ms)
+      noArgs: false
+      required: true
+      requiredWhenDestroyed: false
+    - name: offset
+      desc: delay offset for the time
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: process
+      desc: Application process name
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: pid
+      desc: The process id
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: async
+      desc: Whether to attach asynchronously, default is false
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: endpoint
+      desc: the create result reporting address. It takes effect only when the async
+        value is true and the value is not empty
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: refresh
+      desc: Uninstall java agent and reload it
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: javaHome
+      desc: Specify the JAVA_HOME variable to loading jre lib
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    example: |-
+      # Do a delay 2000ms experiment on zk
+      blade create zk delay --path /test --time 2000
+    programs:
+    - java
+    categories:
+    - java_delay
+  - action: throwCustomException
+    aliases: [tce]
+    shortDesc: throw custom exception
+    longDesc: zk commands throws custom exception experiments
+    matchers:
+    - name: effect-count
+      desc: The count of chaos experiment in effect
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: effect-percent
+      desc: The percent of chaos experiment in effect
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: path
+      desc: The zookeeper node path
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: pre-compile
+      desc: pre compile
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: filter-script-file
+      desc: the script full path to filter request
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: filter-script-content
+      desc: the script content to filter request
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    flags:
+    - name: exception
+      desc: Exception class inherit java.lang.Exception
+      noArgs: false
+      required: true
+      requiredWhenDestroyed: false
+    - name: exception-message
+      desc: Specify exception message
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: process
+      desc: Application process name
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: pid
+      desc: The process id
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: async
+      desc: Whether to attach asynchronously, default is false
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: endpoint
+      desc: the create result reporting address. It takes effect only when the async
+        value is true and the value is not empty
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: refresh
+      desc: Uninstall java agent and reload it
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: javaHome
+      desc: Specify the JAVA_HOME variable to loading jre lib
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    example: |-
+      # Throw exception on zk operation
+      blade create zk throwCustomException --exception java.lang.Exception --path /test
+    programs:
+    - java
+    categories:
+    - java_custom
+  scope: host
+  prepare:
+    type: jvm
+    flags:
+    - name: process
+      desc: Java application process
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: javaHome
+      desc: Java home path
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: pid
+      desc: the target java process id
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: port
+      desc: The port for agent
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    - name: async
+      desc: Whether to attach asynchronously, default is false
+      noArgs: true
+      required: false
+      requiredWhenDestroyed: false
+    - name: endpoint
+      desc: The attach result reporting address
+      noArgs: false
+      required: false
+      requiredWhenDestroyed: false
+    required: true
 - target: gateway
   shortDesc: gateway experiment!
   longDesc: gateway experiment contains delay and exception

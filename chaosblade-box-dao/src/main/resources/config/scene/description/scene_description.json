@@ -241,8 +241,15 @@
   {
     "appCode": "mkapp.k8s-dockerd.stop",
     "description": "停止主机dockerd服务，模拟docker宕机。"
+  },
+  {
+    "keyCode": "zk.delay",
+    "appCode": "chaos.zk.delay",
+    "description": "模拟zookeeper操作延迟的场景，可用于测试应用在zookeeper响应缓慢时的容错能力。"
+  },
+  {
+    "keyCode": "zk.throwCustomException",
+    "appCode": "chaos.zk.throwCustomException",
+    "description": "模拟zookeeper抛出自定义异常的场景，可用于测试应用在zookeeper异常时的容错能力。"
   }
-
-
-
 ]
